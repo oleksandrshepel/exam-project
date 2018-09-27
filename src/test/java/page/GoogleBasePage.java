@@ -43,21 +43,6 @@ public abstract class GoogleBasePage {
     }
 
     /**
-     * Returns boolean depending the fact whether url contains or not partial text
-     * @param partialUrl - a char sequence of
-     * @param timeOutInSec - timeout parameter in seconds
-     * @return - boolean
-     */
-    protected boolean isUrlContains(String partialUrl, int timeOutInSec){
-        wait = new WebDriverWait(driver, timeOutInSec);
-        try{
-            return wait.until(ExpectedConditions.urlContains(partialUrl));
-        } catch(TimeoutException e){
-            return false;
-        }
-    }
-
-    /**
      * Asserts whether url matches a pattern
      *
      * @param url - a string with url
@@ -71,7 +56,7 @@ public abstract class GoogleBasePage {
      *
      * @param partialUrl - a string with partialurl
      */
-    protected void assertURLcontains(String partialUrl){
+    protected void assertURLContains(String partialUrl){
         if (!getCurrentUrl().contains(partialUrl)) throw new AssertionError("URL doesn't contain a partialUrl");
     }
 
@@ -89,7 +74,7 @@ public abstract class GoogleBasePage {
      *
      * @param pageTitle - a string with page title
      */
-    protected void assertTitleContains(String pageTitle){
+    protected void assertTitleContains(String pageTitle) {
         if (!getCurrentTitle().contains(pageTitle)) throw new AssertionError("Page title doesn't contain a pattern");
     }
 

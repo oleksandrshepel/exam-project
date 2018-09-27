@@ -11,7 +11,8 @@ public class GoogleSearchTest extends GoogleBaseTest {
     public Object[][] searchLandingPage() {
         return new Object[][]{
                 {"Selenium"},
-                {"selenium"}
+                {"selenium"},
+                {"SELENIUM"}
         };
     }
     /**
