@@ -45,7 +45,7 @@ public class GoogleSearchTest extends GoogleBaseTest {
                     "Search term "+requestData+" is not found in: "+result);
         }
         googleSearchPage.clickForwardButton();
-        googleSearchPage.assertResultStatusContainsText("Сторінка 2 з такої приблизної кількості результатів:");
+        googleSearchPage.assertResultStatusContainsText("Сторінка 2 з такої приблизної кількості результатів:");//sometime there might be problems with encoding ukr text
         Assert.assertEquals(googleSearchPage.getSearchResultsNumber(), 10, "Number of search results is incorrect");
         List<String> secondSearchResultsList = googleSearchPage.getSearchResultsList();
         for(String result: secondSearchResultsList){

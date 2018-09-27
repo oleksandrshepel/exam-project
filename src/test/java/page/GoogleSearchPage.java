@@ -41,7 +41,7 @@ public class GoogleSearchPage extends GoogleBasePage {
         assertWebElementIsVisible(logoContent,10);
         assertWebElementIsVisible(resultsStatus,10);
         assertURLContains(partialUrl);
-        //assertTitleContains(pageTitle); -- has some problems with encoding ukr text
+        assertTitleContains(pageTitle); //sometime there might be problems with encoding ukr text
     }
 
     /**
