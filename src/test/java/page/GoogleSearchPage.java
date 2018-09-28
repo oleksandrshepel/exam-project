@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class GoogleSearchPage extends GoogleBasePage {
     private String partialUrl = "/search";
-    private String pageTitle = "- Google Search";
+    private String pageTitle = "- Пошук Google";
 
     @FindBy(xpath = "//div[@id='logocont']")
     private WebElement logoContent;
@@ -41,7 +42,12 @@ public class GoogleSearchPage extends GoogleBasePage {
         assertWebElementIsVisible(logoContent,10);
         assertWebElementIsVisible(resultsStatus,10);
         assertURLContains(partialUrl);
-        assertTitleContains(pageTitle); //sometime there might be problems with encoding ukr text
+        try {
+            String pageTitleEnc = new String(pageTitle.getBytes("UTF-8"), "UTF-8");
+            assertTitleContains(pageTitleEnc); //sometime there might be problems with encoding ukr text
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
